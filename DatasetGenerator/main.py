@@ -7,7 +7,9 @@ import torchvision.transforms as transforms
 random.seed(100)
 torch.manual_seed(100)
 
-def generate_dataset(data_dir: str = "./data", img_size: int = 64, batch_size: int = 128, num_workers: int = 2) -> data.dataloader.DataLoader:
+
+def generate_dataset(data_dir: str = "./data", img_size: int = 64, batch_size: int = 128,
+                     num_workers: int = 2) -> data.dataloader.DataLoader:
     dataset = datasets.CIFAR10(root=data_dir, download=True, transform=transforms.Compose([
         transforms.Resize(img_size),
         transforms.ToTensor(),
@@ -18,6 +20,7 @@ def generate_dataset(data_dir: str = "./data", img_size: int = 64, batch_size: i
     data_loader = data.DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=num_workers)
 
     return data_loader
+
 
 if __name__ == "__main__":
     x = generate_dataset(batch_size=16)
