@@ -1,5 +1,7 @@
+/data
 */data
 /DatasetGenerator/data/
+/AttackModel/data
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

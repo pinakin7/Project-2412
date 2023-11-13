@@ -1,4 +1,5 @@
 import torch.nn as nn
+from torch import Tensor
 
 import utils.utils
 
@@ -40,10 +41,10 @@ class Generator(nn.Module):
     def forward(self, x):
         if x.is_cuda and self.num_gpus > 1:
             out = nn.parallel.data_parallel(self.gen_net, x, range(self.num_gpus))
-            return out
         else:
             out = self.gen_net(x)
-            return out
+
+        return out
 
 
 if __name__ == "__main__":
