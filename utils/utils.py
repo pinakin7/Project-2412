@@ -1,7 +1,19 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import torch
 
 label_class = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
+
+num_channels = 3
+
+# Attack model parameters
+attack_noise_dim = 100
+num_attack_generator_filter = 64
+num_attack_discriminator_filter = 64
+attack_batch_size = 64
+
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
+num_gpus = 1
 
 
 def init_params_attack_model(model):

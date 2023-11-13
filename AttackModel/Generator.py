@@ -1,5 +1,7 @@
 import torch.nn as nn
 
+import utils.utils
+
 
 class Generator(nn.Module):
     def __init__(self, noise_dims: int, num_filters: int, num_channels: int, num_gpus: int):
@@ -38,11 +40,23 @@ class Generator(nn.Module):
     def forward(self, x):
         if x.is_cuda and self.num_gpus > 1:
             out = nn.parallel.data_parallel(self.gen_net, x, range(self.num_gpus))
+            return out
         else:
             out = self.gen_net(x)
-
-        return out
+            return out
 
 
 if __name__ == "__main__":
-    pass
+    import torch
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    net = Generator(utils.utils.attack_noise_dim, utils.utils.num_attack_generator_filter, utils.utils.num_channels,
+                    utils.utils.num_gpus).to(utils.utils.device)
+    noise = torch.randn(1, utils.utils.attack_noise_dim, 1, 1, device=utils.utils.device)
+
+    out = net(noise)
+
+    print(out.shape)
+    plt.imshow(np.transpose(out.cpu().detach().squeeze().numpy(), (1, 2, 0)))
+    plt.show()
