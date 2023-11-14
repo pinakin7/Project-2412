@@ -13,6 +13,8 @@ attack_noise_dim = 100
 num_attack_generator_filter = 64
 num_attack_discriminator_filter = 64
 attack_batch_size = 64
+attack_epochs = 30
+ATTACK_MODEL_PATH = "../model/attack"
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 num_gpus = 1
@@ -48,3 +50,7 @@ def plot_images_grid(num_images, img_size, image_tensors, labels, label):
         ax.set_title(label[labels[i]])
         ax.axis('off')
     plt.show()
+
+
+def print_red(text):
+    print("\033[91m{}\033[0m".format(text))
