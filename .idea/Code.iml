@@ -2,6 +2,9 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/data" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/models" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb" />
       <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_182042-hof3zjkr/logs" />
       <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_182042-hof3zjkr/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_182123-351ws80k/logs" />
@@ -30,6 +33,8 @@
       <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231114_142826-u3sfdyy7" />
       <excludeFolder url="file://$MODULE_DIR$/data" />
       <excludeFolder url="file://$MODULE_DIR$/model" />
+      <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/wandb" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

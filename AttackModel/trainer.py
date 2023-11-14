@@ -1,14 +1,13 @@
 import torch
-
-from tqdm import tqdm
-import torch.optim as optim
 import torch.nn as nn
+import torch.optim as optim
+import torchvision.utils as vsutils
+from tqdm import tqdm
 
-from utils import utils
+from DatasetGenerator.main import generate_dataset
 from Discriminator import Discriminator
 from Generator import Generator
-from DatasetGenerator.main import generate_dataset
-import torchvision.utils as vsutils
+from utils import utils
 
 
 def train(wandb):
@@ -99,14 +98,8 @@ def train(wandb):
             "D(G(z2))": D_G_z2 / len(data_loader),
         })
 
-        torch.save(gen_net.state_dict(), f'{utils.ATTACK_MODEL_PATH}/weights/Generator_Epoch_{epoch}.pth')
-        torch.save(disc_net.state_dict(), f'{utils.ATTACK_MODEL_PATH}/weights/Discriminator_Epoch_{epoch}.pth')
-
-    torch.save(gen_net.state_dict(), f"{utils.ATTACK_MODEL_PATH}/weights/Generator.h5")
-    wandb.save(f"{utils.ATTACK_MODEL_PATH}/weights/Generator.h5")
-
-    torch.save(disc_net.state_dict(), f"{utils.ATTACK_MODEL_PATH}/weights/Discriminator.h5")
-    wandb.save(f"{utils.ATTACK_MODEL_PATH}/weights/Discriminator.h5")
+        torch.save(gen_net.state_dict(), f'{utils.ATTACK_MODEL_PATH}/Generator_Epoch_{epoch}.pth')
+        torch.save(disc_net.state_dict(), f'{utils.ATTACK_MODEL_PATH}/Discriminator_Epoch_{epoch}.pth')
 
 
 def main():
@@ -114,7 +107,6 @@ def main():
 
     wandb.init(
         # set the wandb project where this run will be logged
-        dir="../",
         project="2412-Attack Model",
         entity="2412",
         config={
@@ -127,6 +119,9 @@ def main():
             "epochs": utils.attack_epochs,
         },
     )
+
+    # import os
+    # print(os.getcwd())
 
     train(wandb)
 

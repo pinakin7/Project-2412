@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a581421e-8671-4440-b886-0b5e4af09901" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AttackModel/main.py" afterDir="false" />
+    <list default="true" id="a581421e-8671-4440-b886-0b5e4af09901" name="Changes" comment="first">
       <change afterPath="$PROJECT_DIR$/AttackModel/wandb/run-20231113_182042-hof3zjkr/files/config.yaml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/AttackModel/wandb/run-20231113_182042-hof3zjkr/files/requirements.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/AttackModel/wandb/run-20231113_182042-hof3zjkr/files/wandb-metadata.json" afterDir="false" />
@@ -719,10 +721,9 @@
       <change afterPath="$PROJECT_DIR$/AttackModel/wandb/run-20231113_183639-qufjec86/files/wandb-summary.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/AttackModel/wandb/run-20231113_183639-qufjec86/run-qufjec86.wandb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Code.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Code.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AttackModel/trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/AttackModel/trainer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.py" afterDir="false" />
     </list>
@@ -747,9 +748,14 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -761,11 +767,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1699994957741</updated>
-      <workItem from="1699994959349" duration="68000" />
+      <workItem from="1699994959349" duration="1707000" />
     </task>
+    <task id="LOCAL-00001" summary="first">
+      <option name="closed" value="true" />
+      <created>1699995118887</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1699995118887</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first" />
+    <option name="LAST_COMMIT_MESSAGE" value="first" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Code$trainer.coverage" NAME="trainer Coverage Results" MODIFIED="1699996622574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/AttackModel" />
   </component>
 </project>
