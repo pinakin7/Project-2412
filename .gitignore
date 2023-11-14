@@ -3,6 +3,7 @@
 /DatasetGenerator/data/
 /AttackModel/data
 */wandb
+/AttackModel/wandb
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
