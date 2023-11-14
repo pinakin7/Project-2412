@@ -12,8 +12,8 @@ num_channels = 3
 attack_noise_dim = 100
 num_attack_generator_filter = 64
 num_attack_discriminator_filter = 64
-attack_batch_size = 64
-attack_epochs = 30
+attack_batch_size = 128
+attack_epochs = 10
 ATTACK_MODEL_PATH = "../model/attack"
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'

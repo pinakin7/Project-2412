@@ -74,12 +74,12 @@ def train(wandb):
             error_G += err_gen
             optimizer_gen.step()
 
-            if i % 100 == 0:
+            if (i+1) % 100 == 0:
                 wandb.log({"image": wandb.Image(data[0].squeeze().cpu().numpy().transpose(1, 2, 0),
-                                                caption=f"Real Sample at {epoch}-{i}")})
+                                                caption=f"Real Sample at {epoch}-{i+1}")})
                 fake = gen_net(fixed_noise).detach()
                 wandb.log({"image": wandb.Image(fake[0].squeeze().cpu().numpy().transpose(1, 2, 0),
-                                                caption=f"Fake Sample at {epoch}-{i}")})
+                                                caption=f"Fake Sample at {epoch}-{i+1}")})
 
         utils.print_red(
             f"Epoch:{epoch} Loss Discriminator: {error_D / len(data_loader)} Loss Generator: {error_G / len(data_loader)} D(x): {D_x / len(data_loader)} D(G(z1)): {D_G_z1 / len(data_loader)} D(G(z2)): {D_G_z2 / len(data_loader)}")
@@ -95,8 +95,8 @@ def train(wandb):
         torch.save(gen_net.state_dict(), f'{utils.ATTACK_MODEL_PATH}/weights/Generator_Epoch_{epoch}.pth')
         torch.save(disc_net.state_dict(), f'{utils.ATTACK_MODEL_PATH}/weights/Discriminator_Epoch_{epoch}.pth')
 
-    wandb.log({"generator_model_summary": wandb.Histogram(gen_net.summary()),
-               "discriminator_model_summary": wandb.Histogram(disc_net.summary())})
+    # wandb.log({"generator_model_summary": wandb.Histogram(gen_net.summary()),
+               # "discriminator_model_summary": wandb.Histogram(disc_net.summary())})
 
 
 if __name__ == "__main__":
@@ -112,7 +112,7 @@ if __name__ == "__main__":
             "dataset": "CIFAR-10",
             "optimizer": "Adam",
             "loss function": "Binary Cross Entropy",
-            "epochs": 30,
+            "epochs": utils.attack_epochs,
         },
     )
 
