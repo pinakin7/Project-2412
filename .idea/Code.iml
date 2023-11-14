@@ -2,14 +2,36 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <excludeFolder url="file://$MODULE_DIR$/DatasetGenerator/data" />
-      <excludeFolder url="file://$MODULE_DIR$/venv" />
-      <excludeFolder url="file://$MODULE_DIR$/AttackModel/data" />
-      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_182042-hof3zjkr/logs" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_182042-hof3zjkr/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_182123-351ws80k/logs" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_182123-351ws80k/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_182247-wd3o05tj/logs" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_182247-wd3o05tj/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_182900-d0n89xj6/logs" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_182900-d0n89xj6/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_183639-qufjec86/logs" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_183639-qufjec86/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_190607-7ydvmz6u" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_194623-7x4wx65h" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_194756-9u2d5ema" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_194810-8t0rrax4" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_195346-mancmqcl" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_195613-aqe8rmi4" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_195804-59b6apwx" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_215118-7i4rbzwu" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_215148-69xqrchd" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_224053-0e5sqgg9" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_224329-cewviojr" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_224619-xclh3k7t" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_224711-mw84kjko" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_224918-zrebk5fi" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231113_234532-k9nh87wd" />
+      <excludeFolder url="file://$MODULE_DIR$/AttackModel/wandb/run-20231114_142826-u3sfdyy7" />
       <excludeFolder url="file://$MODULE_DIR$/data" />
       <excludeFolder url="file://$MODULE_DIR$/model" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.10 (Code)" jdkType="Python SDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

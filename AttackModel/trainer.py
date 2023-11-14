@@ -33,8 +33,8 @@ def train(wandb):
 
     fixed_noise = torch.randn(utils.attack_batch_size, utils.attack_noise_dim, 1, 1, device=utils.device)
 
-    wandb.watch(gen_net, criterion, log='all', log_freq=100)
-    wandb.watch(disc_net, criterion, log='all', log_freq=100)
+    wandb.watch(gen_net, log='all', log_freq=100)
+    wandb.watch(disc_net, log='all', log_freq=100)
 
     for epoch in range(utils.attack_epochs):
         gen_net.train()
@@ -114,6 +114,7 @@ def main():
 
     wandb.init(
         # set the wandb project where this run will be logged
+        dir="../",
         project="2412-Attack Model",
         entity="2412",
         config={

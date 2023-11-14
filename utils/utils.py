@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import torch
 
-DATA_DIR = "../data"
+DATA_DIR = "data"
 
 label_class = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
 
@@ -12,10 +12,10 @@ num_channels = 3
 attack_noise_dim = 100
 num_attack_generator_filter = 64
 num_attack_discriminator_filter = 64
-attack_batch_size = 128
-attack_epochs = 100
+attack_batch_size = 64
+attack_epochs = 10
 attack_img_size = 32
-ATTACK_MODEL_PATH = "../model/attack"
+ATTACK_MODEL_PATH = "model/attack"
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 num_gpus = 1
