@@ -120,8 +120,6 @@ def main():
         },
     )
 
-    # import os
-    # print(os.getcwd())
 
     train(wandb)
 

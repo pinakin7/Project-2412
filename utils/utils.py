@@ -15,7 +15,7 @@ num_attack_discriminator_filter = 64
 attack_batch_size = 64
 attack_epochs = 1
 attack_img_size = 32
-ATTACK_MODEL_PATH = "models"
+ATTACK_MODEL_PATH = "../models/attack/"
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 num_gpus = 1
