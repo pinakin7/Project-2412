@@ -25,13 +25,13 @@ class Discriminator(nn.Module):
             nn.BatchNorm2d(num_filters * 4),
             nn.LeakyReLU(0.2, inplace=True),
 
-            # out size (num_filters*4) * 8 * 8
-            nn.Conv2d(num_filters * 4, num_filters * 8, 4, 2, 1, bias=False),
-            nn.BatchNorm2d(num_filters * 8),
-            nn.LeakyReLU(0.2, inplace=True),
+            # # out size (num_filters*4) * 8 * 8
+            # nn.Conv2d(num_filters * 4, num_filters * 8, 4, 2, 1, bias=False),
+            # nn.BatchNorm2d(num_filters * 8),
+            # nn.LeakyReLU(0.2, inplace=True),
 
-            # out size (num_filters*8) * 4 * 4
-            nn.Conv2d(num_filters * 8, 1, 4, 2, 0, bias=False),
+            # out size (num_filters*4) * 4 * 4
+            nn.Conv2d(num_filters * 4, 1, 4, 1, 0, bias=False),
             nn.Sigmoid()
         )
 
@@ -40,7 +40,7 @@ class Discriminator(nn.Module):
             out = nn.parallel.data_parallel(self.disc_net, x, range(self.num_gpus))
         else:
             out = self.disc_net(x)
-        return out.view(-1, 1).squeeze()
+        return out
 
 
 if __name__ == "__main__":

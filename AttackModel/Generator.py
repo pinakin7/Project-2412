@@ -25,16 +25,16 @@ class Generator(nn.Module):
             nn.BatchNorm2d(num_filters * 2),
             nn.ReLU(inplace=True),
 
-            # now out size is (num_filters*2)*16*16
-            nn.ConvTranspose2d(num_filters * 2, num_filters, 4, 2, 1, bias=False),
-            nn.BatchNorm2d(num_filters),
-            nn.ReLU(inplace=True),
+            # # now out size is (num_filters*2)*16*16
+            # nn.ConvTranspose2d(num_filters * 2, num_filters, 4, 2, 1, bias=False),
+            # nn.BatchNorm2d(num_filters),
+            # nn.ReLU(inplace=True),
 
-            # now out size is (num_filters)*32*32
-            nn.ConvTranspose2d(num_filters, num_channels, 4, 2, 1, bias=False),
+            # now out size is (num_filters)*16*16
+            nn.ConvTranspose2d(num_filters*2, num_channels, 4, 2, 1, bias=False),
             nn.Tanh(),
 
-            # now out size is (num_channels)*64*64
+            # now out size is (num_channels)*32*32
         )
 
     def forward(self, x):
