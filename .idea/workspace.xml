@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a581421e-8671-4440-b886-0b5e4af09901" name="Changes" comment="update in the training loop">
-      <change afterPath="$PROJECT_DIR$/PrivateModels/DPGAN/Generator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PrivateModels/DPGAN/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/statistics/ActivationStatistics.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/statistics/FID.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/statistics/InceptionV3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/statistics/__init__.py" afterDir="false" />
+    <list default="true" id="a581421e-8671-4440-b886-0b5e4af09901" name="Changes" comment="DPGAN - Generator">
+      <change afterPath="$PROJECT_DIR$/PrivateModels/DPGAN/Discriminator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Code.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Code.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AttackModel/trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/AttackModel/trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AttackModel/Discriminator.py" beforeDir="false" afterPath="$PROJECT_DIR$/AttackModel/Discriminator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AttackModel/Generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/AttackModel/Generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrivateModels/DPGAN/Generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/PrivateModels/DPGAN/Generator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,28 +89,6 @@
       <option name="ADDITIONAL_ARGS" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ActivationStatistics" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Code" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils/statistics" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/statistics/ActivationStatistics.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="Attack-Trainer" type="PythonConfigurationType" factoryName="Python">
       <module name="Code" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -128,6 +104,50 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AttackModel/trainer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Discriminator (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/AttackModel" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AttackModel/Discriminator.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Discriminator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PrivateModels/DPGAN" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PrivateModels/DPGAN/Discriminator.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -194,28 +214,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PrivateModels/DPGAN/Generator.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="InceptionV3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Code" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils/statistics" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="A:\Project\2412\utils\statistics\InceptionV3.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -343,9 +341,9 @@
       <list>
         <item itemvalue="Python.Generator" />
         <item itemvalue="Python.Generator (1)" />
+        <item itemvalue="Python.Discriminator" />
+        <item itemvalue="Python.Discriminator (1)" />
         <item itemvalue="Python.FID" />
-        <item itemvalue="Python.ActivationStatistics" />
-        <item itemvalue="Python.InceptionV3" />
       </list>
     </recent_temporary>
   </component>
@@ -366,7 +364,7 @@
       <workItem from="1700349749520" duration="1063000" />
       <workItem from="1700426506892" duration="36000" />
       <workItem from="1700680655928" duration="3000" />
-      <workItem from="1701195776328" duration="9620000" />
+      <workItem from="1701195776328" duration="10392000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <option name="closed" value="true" />
@@ -392,7 +390,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701203326648</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="DPGAN - Generator">
+      <option name="closed" value="true" />
+      <created>1701208038298</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701208038298</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -412,13 +418,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first" />
     <MESSAGE value="update in the training loop" />
-    <option name="LAST_COMMIT_MESSAGE" value="update in the training loop" />
+    <MESSAGE value="DPGAN - Generator" />
+    <option name="LAST_COMMIT_MESSAGE" value="DPGAN - Generator" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/2412$Generator__1_.coverage" NAME="Generator (1) Coverage Results" MODIFIED="1701207756078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/AttackModel" />
-    <SUITE FILE_PATH="coverage/2412$Generator.coverage" NAME="Generator Coverage Results" MODIFIED="1701208007441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PrivateModels/DPGAN" />
+    <SUITE FILE_PATH="coverage/2412$Generator__1_.coverage" NAME="Generator (1) Coverage Results" MODIFIED="1701208738067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/AttackModel" />
+    <SUITE FILE_PATH="coverage/2412$Generator.coverage" NAME="Generator Coverage Results" MODIFIED="1701208793281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PrivateModels/DPGAN" />
     <SUITE FILE_PATH="coverage/2412$ActivationStatistics.coverage" NAME="ActivationStatistics Coverage Results" MODIFIED="1701204750981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils/statistics" />
     <SUITE FILE_PATH="coverage/2412$Attack_Trainer.coverage" NAME="Attack-Trainer Coverage Results" MODIFIED="1701206302206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="A:\Project\2412\AttackModel" />
+    <SUITE FILE_PATH="coverage/2412$Discriminator.coverage" NAME="Discriminator Coverage Results" MODIFIED="1701208690831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PrivateModels/DPGAN" />
+    <SUITE FILE_PATH="coverage/2412$Discriminator__1_.coverage" NAME="Discriminator (1) Coverage Results" MODIFIED="1701208561372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/AttackModel" />
     <SUITE FILE_PATH="coverage/2412$FID.coverage" NAME="FID Coverage Results" MODIFIED="1701205798318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils/statistics" />
     <SUITE FILE_PATH="coverage/Code$trainer.coverage" NAME="trainer Coverage Results" MODIFIED="1699996622574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/AttackModel" />
     <SUITE FILE_PATH="coverage/2412$trainer.coverage" NAME="trainer Coverage Results" MODIFIED="1700000283620" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/AttackModel" />

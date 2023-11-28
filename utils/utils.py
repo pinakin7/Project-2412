@@ -16,7 +16,8 @@ attack_batch_size = 100
 attack_epochs = 20
 attack_gen_lr = 0.00558
 attack_disc_lr = 0.003
-attack_img_size = 32
+attack_img_size = 64
+
 ATTACK_MODEL_PATH = "../models/attack/"
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'

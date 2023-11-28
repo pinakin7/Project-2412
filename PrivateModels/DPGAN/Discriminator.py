@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 
-import utils.utils
+from utils import utils
 
 
 class Discriminator(nn.Module):
@@ -17,17 +17,17 @@ class Discriminator(nn.Module):
 
             # out size (num_filters) * 32 * 32
             nn.Conv2d(num_filters, num_filters * 2, 4, 2, 1, bias=False),
-            nn.BatchNorm2d(num_filters * 2),
+            nn.GroupNorm(min(32, num_filters * 2), num_filters * 2),
             nn.LeakyReLU(0.2, inplace=True),
 
             # out size (num_filters*2) * 16 * 16
             nn.Conv2d(num_filters * 2, num_filters * 4, 4, 2, 1, bias=False),
-            nn.BatchNorm2d(num_filters * 4),
+            nn.GroupNorm(min(32, num_filters * 4), num_filters * 4),
             nn.LeakyReLU(0.2, inplace=True),
 
-            # # out size (num_filters*4) * 8 * 8
+            # out size (num_filters*4) * 8 * 8
             nn.Conv2d(num_filters * 4, num_filters * 8, 4, 2, 1, bias=False),
-            nn.BatchNorm2d(num_filters * 8),
+            nn.GroupNorm(min(32, num_filters * 8), num_filters * 8),
             nn.LeakyReLU(0.2, inplace=True),
 
             # out size (num_filters*4) * 4 * 4
@@ -46,13 +46,14 @@ class Discriminator(nn.Module):
 if __name__ == "__main__":
     from DatasetGenerator.main import generate_dataset
 
-    loader = generate_dataset(utils.utils.DATA_DIR)
+    loader = generate_dataset(utils.DATA_DIR)
 
     x, _ = next(iter(loader))
     y = torch.full((128,), 1)
 
-    net = Discriminator(utils.utils.num_channels, utils.utils.num_attack_discriminator_filter, utils.utils.num_gpus)
+    net = Discriminator(utils.num_channels, utils.num_dpgan_discriminator_filter, utils.num_gpus)
+    net.apply(utils.init_params_dpgan_model)
 
     y_preds = net(x)
 
-    print(y_preds.view(-1).shape, y.shape)
+    print(y_preds.shape, y.shape)
