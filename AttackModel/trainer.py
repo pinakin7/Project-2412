@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
+from torch.optim.lr_scheduler import CosineAnnealingWarmRestarts
 import torchvision.utils as vsutils
 from tqdm import tqdm
 
@@ -10,11 +11,11 @@ from Generator import Generator
 from utils import utils
 
 
-def train(wandb):
+def train(run):
     torch.use_deterministic_algorithms(True)  # for reproducible results
 
     data_loader = generate_dataset(utils.DATA_DIR, batch_size=utils.attack_batch_size, img_size=utils.attack_img_size)
-
+    T_0 = len(data_loader)
     gen_net = Generator(utils.attack_noise_dim, utils.num_attack_generator_filter, utils.num_channels,
                         utils.num_gpus).to(utils.device)
     gen_net.apply(utils.init_params_attack_model)
@@ -24,16 +25,18 @@ def train(wandb):
 
     criterion = nn.BCELoss()
 
-    optimizer_gen = optim.Adam(gen_net.parameters(), lr=0.0002, betas=(0.5, 0.999))
-    optimizer_disc = optim.Adam(disc_net.parameters(), lr=0.0002, betas=(0.5, 0.999))
+    optimizer_gen = optim.Adam(gen_net.parameters(), lr=utils.attack_gen_lr, betas=(0.5, 0.999))
+    optimizer_disc = optim.Adam(disc_net.parameters(), lr=utils.attack_disc_lr, betas=(0.5, 0.999))
+
+    scheduler = CosineAnnealingWarmRestarts(optimizer_disc, T_0, eta_min=0.0001)
 
     real_label = 0.9
     fake_label = 0.1
 
     fixed_noise = torch.randn(utils.attack_batch_size, utils.attack_noise_dim, 1, 1, device=utils.device)
 
-    wandb.watch(gen_net, log='all', log_freq=100)
-    wandb.watch(disc_net, log='all', log_freq=100)
+    run.watch(gen_net, log='all', log_freq=100)
+    run.watch(disc_net, log='all', log_freq=100)
 
     for epoch in range(utils.attack_epochs):
         gen_net.train()
@@ -68,6 +71,8 @@ def train(wandb):
             error_D += err_disc_fake + err_disc_real
             optimizer_disc.step()
 
+            scheduler.step(epoch + i / T_0)
+
             ########################################################
             # (Step 2): Updating the Generator model:
             # # maximize log(D(G(Z)))
@@ -84,34 +89,46 @@ def train(wandb):
             if (i + 1) % 100 == 0:
                 with torch.no_grad():
                     fake = gen_net(fixed_noise).detach()
-                    wandb.log({"image": wandb.Image(vsutils.make_grid(fake.cpu(), padding=2, normalize=True),
+                    run.log({"image": wandb.Image(vsutils.make_grid(fake.cpu(), padding=2, normalize=True, nrow=10),
                                                     caption=f"Fake Samples at {epoch}-{i + 1}")})
 
         utils.print_red(
             f"Epoch:{epoch} Loss Discriminator: {error_D / len(data_loader)} Loss Generator: {error_G / len(data_loader)} D(x): {D_x / len(data_loader)} D(G(z1)): {D_G_z1 / len(data_loader)} D(G(z2)): {D_G_z2 / len(data_loader)}")
 
-        wandb.log({
+        run.log({
             "Loss Discriminator": error_D / len(data_loader),
             "Loss Generator": error_G / len(data_loader),
             "D(x)": D_x / len(data_loader),
             "D(G(z1))": D_G_z1 / len(data_loader),
             "D(G(z2))": D_G_z2 / len(data_loader),
+            "Discriminator Learning Rate": optimizer_disc.param_groups[0]['lr'],
         })
 
         torch.save(gen_net.state_dict(), f'{utils.ATTACK_MODEL_PATH}/Generator_Epoch_{epoch}.pth')
         torch.save(disc_net.state_dict(), f'{utils.ATTACK_MODEL_PATH}/Discriminator_Epoch_{epoch}.pth')
 
+    artifact = wandb.Artifact('model', type='model')
 
-def main():
+    torch.save(gen_net.state_dict(), f'{utils.ATTACK_MODEL_PATH}/Generator.pth')
+    torch.save(disc_net.state_dict(), f'{utils.ATTACK_MODEL_PATH}/Discriminator.pth')
+
+    artifact.add_file(f'{utils.ATTACK_MODEL_PATH}/Generator.pth')
+    artifact.add_file(f'{utils.ATTACK_MODEL_PATH}/Discriminator.pth')
+    run.log_artifact(artifact)
+
+
+if __name__ == "__main__":
     import wandb
 
-    wandb.init(
+    wandb.login(key="c8b7ef31a46dca526003891b3b6dda9f2a6391cf")
+
+    run = wandb.init(
         # set the wandb project where this run will be logged
         project="2412-Attack Model",
         entity="2412",
         config={
-            "generator_learning_rate": 0.0002,
-            "discriminator_learning_rate": 0.0002,
+            "generator_learning_rate": utils.attack_gen_lr,
+            "discriminator_learning_rate": utils.attack_disc_lr,
             "architecture": "DCGAN",
             "dataset": "CIFAR-10",
             "optimizer": "Adam",
@@ -120,11 +137,6 @@ def main():
         },
     )
 
+    train(run)
 
-    train(wandb)
-
-    wandb.finish()
-
-
-if __name__ == "__main__":
-    main()
+    run.finish()

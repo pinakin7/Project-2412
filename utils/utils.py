@@ -12,8 +12,10 @@ num_channels = 3
 attack_noise_dim = 100
 num_attack_generator_filter = 64
 num_attack_discriminator_filter = 64
-attack_batch_size = 64
-attack_epochs = 1
+attack_batch_size = 100
+attack_epochs = 10
+attack_gen_lr = 0.00558
+attack_disc_lr = 0.003
 attack_img_size = 32
 ATTACK_MODEL_PATH = "../models/attack/"
 
