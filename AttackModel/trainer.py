@@ -9,9 +9,15 @@ from DatasetGenerator.main import generate_dataset
 from Discriminator import Discriminator
 from Generator import Generator
 from utils import utils
+from utils.statistics.FID import calculate_fretchet
+from utils.statistics.InceptionV3 import InceptionV3
 
 
 def train(run):
+    # FID Score Initialization
+    block_idx = InceptionV3.BLOCK_INDEX_BY_DIM[2048]
+    fid_model = InceptionV3([block_idx])
+
     torch.use_deterministic_algorithms(True)  # for reproducible results
 
     data_loader = generate_dataset(utils.DATA_DIR, batch_size=utils.attack_batch_size, img_size=utils.attack_img_size)
@@ -41,7 +47,7 @@ def train(run):
     for epoch in range(utils.attack_epochs):
         gen_net.train()
         disc_net.train()
-        error_D, error_G, D_x, D_G_z1, D_G_z2 = 0, 0, 0, 0, 0
+        error_D, error_G, D_x, D_G_z1, D_G_z2, fid = 0, 0, 0, 0, 0, 0
         for i, data in tqdm(enumerate(data_loader, 0), desc=f"Epoch {epoch}/{utils.attack_epochs}:",
                             total=len(data_loader)):
             ########################################################
@@ -90,10 +96,14 @@ def train(run):
                 with torch.no_grad():
                     fake = gen_net(fixed_noise).detach()
                     run.log({"image": wandb.Image(vsutils.make_grid(fake.cpu(), padding=2, normalize=True, nrow=10),
-                                                    caption=f"Fake Samples at {epoch}-{i + 1}")})
+                                                  caption=f"Fake Samples at {epoch}-{i + 1}")})
+
+
+        if (epoch+1) % 10 == 0:
+            fid = calculate_fretchet(data.cpu(), fake, fid_model)
 
         utils.print_red(
-            f"Epoch:{epoch} Loss Discriminator: {error_D / len(data_loader)} Loss Generator: {error_G / len(data_loader)} D(x): {D_x / len(data_loader)} D(G(z1)): {D_G_z1 / len(data_loader)} D(G(z2)): {D_G_z2 / len(data_loader)}")
+            f"Epoch:{epoch} Loss Discriminator: {error_D / len(data_loader)} Loss Generator: {error_G / len(data_loader)} D(x): {D_x / len(data_loader)} D(G(z1)): {D_G_z1 / len(data_loader)} D(G(z2)): {D_G_z2 / len(data_loader)} Frechet Inception Distance:  {fid}")
 
         run.log({
             "Loss Discriminator": error_D / len(data_loader),
@@ -102,6 +112,7 @@ def train(run):
             "D(G(z1))": D_G_z1 / len(data_loader),
             "D(G(z2))": D_G_z2 / len(data_loader),
             "Discriminator Learning Rate": optimizer_disc.param_groups[0]['lr'],
+            "Frechet Inception Distance": fid,
         })
 
         torch.save(gen_net.state_dict(), f'{utils.ATTACK_MODEL_PATH}/Generator_Epoch_{epoch}.pth')
