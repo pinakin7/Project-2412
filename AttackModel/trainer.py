@@ -57,7 +57,7 @@ def train(run):
             data = data[0]
             batch_size = data.size(0)
             # training with the real data
-            disc_net.zero_grad()
+            optimizer_disc.zero_grad()
             data = data.to(utils.device)
             label = torch.full((batch_size,), real_label, device=utils.device, dtype=torch.float32)
 
@@ -77,13 +77,13 @@ def train(run):
             error_D += err_disc_fake + err_disc_real
             optimizer_disc.step()
 
-            scheduler.step(epoch + i / T_0)
+            # scheduler.step(epoch + i / T_0)
 
             ########################################################
             # (Step 2): Updating the Generator model:
             # # maximize log(D(G(Z)))
             ########################################################
-            gen_net.zero_grad()
+            optimizer_gen.zero_grad()
             label.fill_(real_label)
             output = disc_net(fake).view(-1)
             err_gen = criterion(output, label)

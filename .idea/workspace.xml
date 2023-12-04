@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a581421e-8671-4440-b886-0b5e4af09901" name="Changes" comment="DPGAN - Generator">
-      <change afterPath="$PROJECT_DIR$/PrivateModels/DPGAN/Discriminator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Code.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Code.iml" afterDir="false" />
+    <list default="true" id="a581421e-8671-4440-b886-0b5e4af09901" name="Changes" comment="Architecture Update">
+      <change afterPath="$PROJECT_DIR$/PrivateModels/DPGAN/trainer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AttackModel/Discriminator.py" beforeDir="false" afterPath="$PROJECT_DIR$/AttackModel/Discriminator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AttackModel/Generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/AttackModel/Generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrivateModels/DPGAN/Generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/PrivateModels/DPGAN/Generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AttackModel/trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/AttackModel/trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatasetGenerator/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/DatasetGenerator/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,6 +25,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="showPreview" value="true" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -45,7 +46,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/pinak/OneDrive/Desktop/UofT/Courses/2516&quot;,
+    &quot;last_opened_file_path&quot;: &quot;A:/Project/2412/PrivateModels/DPGAN&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -55,7 +56,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.Generator">
+  <component name="RunManager" selected="Python.DPGAN - TRAINER">
     <configuration default="true" type="DjangoTestsConfigurationType">
       <module name="2412" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -104,6 +105,29 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AttackModel/trainer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="DPGAN - TRAINER" type="PythonConfigurationType" factoryName="Python">
+      <module name="Code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.10 (2412)" />
+      <option name="WORKING_DIRECTORY" value="A:\Project\2412\PrivateModels\DPGAN" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PrivateModels/DPGAN/trainer.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -337,6 +361,15 @@
       <option name="USE_PATTERN" value="false" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.Attack-Trainer" />
+      <item itemvalue="Python.DPGAN - TRAINER" />
+      <item itemvalue="Python.Discriminator" />
+      <item itemvalue="Python.Discriminator (1)" />
+      <item itemvalue="Python.FID" />
+      <item itemvalue="Python.Generator" />
+      <item itemvalue="Python.Generator (1)" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.Generator" />
@@ -364,7 +397,10 @@
       <workItem from="1700349749520" duration="1063000" />
       <workItem from="1700426506892" duration="36000" />
       <workItem from="1700680655928" duration="3000" />
-      <workItem from="1701195776328" duration="10392000" />
+      <workItem from="1701195776328" duration="12150000" />
+      <workItem from="1701211342815" duration="10384000" />
+      <workItem from="1701277886297" duration="1731000" />
+      <workItem from="1701718737952" duration="5982000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <option name="closed" value="true" />
@@ -398,7 +434,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701208038298</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Architecture Update">
+      <option name="closed" value="true" />
+      <created>1701209066629</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701209066629</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,11 +463,13 @@
     <MESSAGE value="first" />
     <MESSAGE value="update in the training loop" />
     <MESSAGE value="DPGAN - Generator" />
-    <option name="LAST_COMMIT_MESSAGE" value="DPGAN - Generator" />
+    <MESSAGE value="Architecture Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Architecture Update" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/2412$Generator__1_.coverage" NAME="Generator (1) Coverage Results" MODIFIED="1701208738067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/AttackModel" />
-    <SUITE FILE_PATH="coverage/2412$Generator.coverage" NAME="Generator Coverage Results" MODIFIED="1701208793281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PrivateModels/DPGAN" />
+    <SUITE FILE_PATH="coverage/2412$DPGAN___TRAINER.coverage" NAME="DPGAN - TRAINER Coverage Results" MODIFIED="1701726688425" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="A:\Project\2412\PrivateModels\DPGAN" />
+    <SUITE FILE_PATH="coverage/2412$Generator.coverage" NAME="Generator Coverage Results" MODIFIED="1701208989666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PrivateModels/DPGAN" />
     <SUITE FILE_PATH="coverage/2412$ActivationStatistics.coverage" NAME="ActivationStatistics Coverage Results" MODIFIED="1701204750981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils/statistics" />
     <SUITE FILE_PATH="coverage/2412$Attack_Trainer.coverage" NAME="Attack-Trainer Coverage Results" MODIFIED="1701206302206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="A:\Project\2412\AttackModel" />
     <SUITE FILE_PATH="coverage/2412$Discriminator.coverage" NAME="Discriminator Coverage Results" MODIFIED="1701208690831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PrivateModels/DPGAN" />

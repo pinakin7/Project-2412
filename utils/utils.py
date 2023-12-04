@@ -6,14 +6,14 @@ DATA_DIR = "../data"
 
 label_class = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
 
-num_channels = 3
+num_channels = 1
 
 # Attack model parameters
 attack_noise_dim = 100
 num_attack_generator_filter = 64
 num_attack_discriminator_filter = 64
 attack_batch_size = 100
-attack_epochs = 20
+attack_epochs = 10
 attack_gen_lr = 0.00558
 attack_disc_lr = 0.003
 attack_img_size = 64
@@ -27,13 +27,20 @@ num_gpus = 1
 dpgan_noise_dim = 100
 num_dpgan_generator_filter = 64
 num_dpgan_discriminator_filter = 64
-dogan_batch_size = 100
+dpgan_batch_size = 64
 dpgan_epochs = 20
-dpgan_gen_lr = 0.00558
+dpgan_gen_lr = 0.003
 dpgan_disc_lr = 0.003
-dpgan_img_size = 32
-DPGAN_MODEL_PATH = "../models/dpgan/"
-GAN_MODEL_PATH = "../models/gan/"
+dpgan_img_size = 64
+dpgan_generator_delta = 1e-5
+dpgan_discriminator_noise = 1.0
+dpgan_discriminator_delta = 1e-5
+dpgan_generator_max_grad_norm = 1e-2
+dpgan_discriminator_max_grad_norm = 1.0
+dpgan_discriminator_max_epsilon = 1e5
+dpgan_discriminator_epsilon = 5
+DPGAN_MODEL_PATH = "../../models/dpgan/"
+GAN_MODEL_PATH = "../../models/gan/"
 
 
 def init_params_attack_model(model):
@@ -50,18 +57,18 @@ def init_params_dpgan_model(model):
     classname = model.__class__.__name__
 
     if classname.find('Conv') != -1:
-        model.weight.data.normal_(0.0, 0.05)
+        model.weight.data.normal_(0.0, 0.02)
     elif classname.find('BatchNorm') != -1:
-        model.weight.data.normal_(1.0, 0.05)
+        model.weight.data.normal_(1.0, 0.02)
         model.bias.data.fill_(0)
     elif classname.find('GroupNorm') != -1:
-        model.weight.data.normal_(1.0, 0.05)
+        model.weight.data.normal_(1.0, 0.02)
         model.bias.data.fill_(0)
 
 
 def plot_images_grid(num_images, img_size, image_tensors, labels, label):
-    if image_tensors.shape != (num_images, 3, img_size, img_size):
-        raise ValueError(f"Input tensor shape must be [{num_images}, 3, {img_size}, {img_size}].")
+    if image_tensors.shape != (num_images, num_channels, img_size, img_size):
+        raise ValueError(f"Input tensor shape must be [{num_images}, num_channels, {img_size}, {img_size}].")
 
     nrows = int(np.sqrt(num_images))
     ncols = num_images // nrows
