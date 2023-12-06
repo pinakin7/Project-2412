@@ -24,7 +24,7 @@ def perform_attack_original_data(attack_model, start_idx=0):
         for i, data in tqdm(enumerate(test_data, 0), desc=f"Performing Attack Original Data", total=len(test_data)):
             data = data[0]
             is_in_data = attack_model(data.to(device))
-            logger.log('Original Data', start_idx+i, 1.0, is_in_data.item())
+            logger.log('Original Data', start_idx+i, is_in_data.item())
 
 def perform_attack_gan_data(attack_model, gan, start_idx=0):
     gan = gan.to(device)
@@ -35,7 +35,7 @@ def perform_attack_gan_data(attack_model, gan, start_idx=0):
             noise = torch.rand(1,utils.dpgan_noise_dim,1,1, device=device)
             img = gan(noise)
             is_in_data = attack_model(img)
-            logger.log('GAN Data', start_idx+i, 0.0, is_in_data.item())
+            logger.log('GAN Data', start_idx+i, is_in_data.item())
 
 
 def perform_attack_dpgan_data(attack_model, dpgan, start_idx=0):
@@ -47,7 +47,7 @@ def perform_attack_dpgan_data(attack_model, dpgan, start_idx=0):
             noise = torch.rand(1,utils.dpgan_noise_dim,1,1, device=device)
             img = dpgan(noise)
             is_in_data = attack_model(img)
-            logger.log('DPGAN Data', start_idx+i, 0.0, is_in_data.item())
+            logger.log('DPGAN Data', start_idx+i, is_in_data.item())
 
 
 
