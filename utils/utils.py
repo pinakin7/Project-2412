@@ -28,19 +28,20 @@ dpgan_noise_dim = 100
 num_dpgan_generator_filter = 64
 num_dpgan_discriminator_filter = 64
 dpgan_batch_size = 64
-dpgan_epochs = 20
-dpgan_gen_lr = 0.003
+dpgan_epochs = 10
+dpgan_gen_lr = 0.005
 dpgan_disc_lr = 0.003
 dpgan_img_size = 64
 dpgan_generator_delta = 1e-5
-dpgan_discriminator_noise = 1.0
 dpgan_discriminator_delta = 1e-5
-dpgan_generator_max_grad_norm = 1e-2
-dpgan_discriminator_max_grad_norm = 1.0
-dpgan_discriminator_max_epsilon = 1e5
-dpgan_discriminator_epsilon = 5
-DPGAN_MODEL_PATH = "../../models/dpgan/"
-GAN_MODEL_PATH = "../../models/gan/"
+dpgan_discriminator_noise = 1.15
+dpgan_generator_noise = 1.15
+dpgan_generator_max_grad_norm = 1.1
+dpgan_discriminator_max_grad_norm = 1.1
+# dpgan_discriminator_max_epsilon = 1e5
+# dpgan_discriminator_epsilon = 5
+DPGAN_MODEL_PATH = "models/dpgan/"
+GAN_MODEL_PATH = "models/gan/"
 
 
 def init_params_attack_model(model):

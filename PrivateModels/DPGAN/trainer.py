@@ -1,61 +1,54 @@
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from opacus import PrivacyEngine
-from opacus.optimizers import DPOptimizer
-from torch.optim.lr_scheduler import CosineAnnealingWarmRestarts
 import torchvision.utils as vsutils
+from opacus import PrivacyEngine
+from torch.optim.lr_scheduler import ReduceLROnPlateau
 from tqdm import tqdm
-
+from MIA import mia
 from DatasetGenerator.main import generate_dataset
 from Discriminator import Discriminator
 from Generator import Generator
 from utils import utils
-from utils.statistics.FID import calculate_fretchet
-from utils.statistics.InceptionV3 import InceptionV3
 
 
 def train(run):
-    # FID Score Initialization
-    # block_idx = InceptionV3.BLOCK_INDEX_BY_DIM[2048]
-    # fid_model = InceptionV3([block_idx])
 
-    torch.use_deterministic_algorithms(True)  # for reproducible results
+    # torch.use_deterministic_algorithms(True)  # for reproducible results
 
     data_loader = generate_dataset(utils.DATA_DIR, batch_size=utils.dpgan_batch_size, img_size=utils.dpgan_img_size,
                                    num_workers=0)
-    # T_0 = len(data_loader)
     gen_net = Generator(utils.dpgan_noise_dim, utils.num_dpgan_generator_filter, utils.num_channels,
                         utils.num_gpus).to(utils.device)
-    gen_net.apply(utils.init_params_dpgan_model)
+    gen_net.load_state_dict(torch.load("models/dpgan/Generator.pth"))
 
     disc_net = Discriminator(utils.num_channels, utils.num_dpgan_discriminator_filter, utils.num_gpus).to(utils.device)
     disc_net.apply(utils.init_params_dpgan_model)
 
     criterion = nn.BCELoss()
 
-    optimizer_gen = optim.SGD(gen_net.parameters(), lr=utils.dpgan_gen_lr, momentum=0.9)
-    # optimizer_disc = optim.Adam(disc_net.parameters(), lr=utils.attack_disc_lr, betas=(0.5, 0.999))
+    optimizer_gen = optim.SGD(gen_net.parameters(), lr=utils.dpgan_gen_lr, momentum=0.5)
 
     optimizer_disc = optim.SGD(disc_net.parameters(), lr=utils.dpgan_disc_lr, momentum=0.9)
 
-    # scheduler = CosineAnnealingWarmRestarts(optimizer_disc, T_0, eta_min=0.0001)
 
     real_label = 0.9
     fake_label = 0.1
 
-    fixed_noise = torch.randn(utils.dpgan_batch_size, utils.dpgan_noise_dim, 1, 1, device=utils.device)
 
     disc_privacy_engine = PrivacyEngine()
-    disc_net, optimizer_disc, data_loader = disc_privacy_engine.make_private(
+    disc_net, optimizer_disc, data_loader = disc_privacy_engine.make_private_with_epsilon(
         module=disc_net,
         data_loader=data_loader,
         optimizer=optimizer_disc,
-        noise_multiplier=utils.dpgan_discriminator_noise,
+        # noise_multiplier=utils.dpgan_discriminator_noise,
         max_grad_norm=utils.dpgan_discriminator_max_grad_norm,
         batch_first=True,
         poisson_sampling=False,
-        # target_epsilon=utils.dpgan_discriminator_max_epsilon
+        target_epsilon=5.0,
+        target_delta=utils.dpgan_generator_delta,
+        epochs=utils.dpgan_epochs
     )
     # gen_privacy_engine = PrivacyEngine(accountant="gdp")
     # gen_net, optimizer_gen, data_loader = gen_privacy_engine.make_private(
@@ -67,9 +60,6 @@ def train(run):
     #     batch_first=True
     # )
 
-    # optimizer_disc = DPOptimizer(optimizer=optimizer_disc, noise_multiplier=utils.dpgan_discriminator_delta, max_grad_norm=utils.dpgan_discriminator_max_grad_norm, secure_mode=True, expected_batch_size=utils.dpgan_batch_size)
-    # optimizer_gen = DPOptimizer(optimizer=optimizer_gen, noise_multiplier=utils.dpgan_generator_delta, max_grad_norm=utils.dpgan_generator_max_grad_norm, secure_mode=True, expected_batch_size=utils.dpgan_batch_size)
-
     run.watch(gen_net, log='all', log_freq=100)
     run.watch(disc_net, log='all', log_freq=100)
 
@@ -77,7 +67,7 @@ def train(run):
         gen_net.train()
         disc_net.train()
         error_D, error_G, D_x, D_G_z1, D_G_z2 = 0, 0, 0, 0, 0
-        for i, data in tqdm(enumerate(data_loader, 0), desc=f"Epoch {epoch+1}/{utils.dpgan_epochs}:",
+        for i, data in tqdm(enumerate(data_loader, 0), desc=f"Epoch {epoch + 1}/{utils.dpgan_epochs}:",
                             total=len(data_loader)):
             ########################################################
             # (Step 1): Updating the Discriminator model:
@@ -107,7 +97,6 @@ def train(run):
             nn.utils.clip_grad_norm(disc_net.parameters(), utils.dpgan_discriminator_max_grad_norm)
             optimizer_disc.step()
 
-            # scheduler.step(epoch + i / T_0)
 
             ########################################################
             # (Step 2): Updating the Generator model:
@@ -121,12 +110,15 @@ def train(run):
             D_G_z2 = output.mean().item()
             optimizer_gen.step()
             error_G += err_gen.item()
+            # scheduler.step(err_gen)
 
-            if (i + 1) % 100 == 0:
+            if i % 100 == 0:
                 with torch.no_grad():
+                    fixed_noise = torch.randn(utils.dpgan_batch_size, utils.dpgan_noise_dim, 1, 1, device=utils.device)
                     fake = gen_net(fixed_noise).detach()
-                    run.log({"image": wandb.Image(vsutils.make_grid(fake.cpu(), padding=2, normalize=True, nrow=10),
-                                                  caption=f"Fake Samples at {epoch}-{i + 1}")})
+                    run.log({"image": wandb.Image(vsutils.make_grid(fake.cpu(), padding=2, normalize=True,
+                                                                    nrow=int(np.sqrt(utils.dpgan_batch_size))),
+                                                  caption=f"Fake Samples at {epoch + 1}-{i + 1}")})
 
         disc_epsilon = disc_privacy_engine.accountant.get_epsilon(delta=utils.dpgan_discriminator_delta)
 
@@ -136,18 +128,11 @@ def train(run):
             "D(x)": D_x / len(data_loader),
             "D(G(z1))": D_G_z1 / len(data_loader),
             "D(G(z2))": D_G_z2 / len(data_loader),
-            "Privacy Cost": disc_epsilon,
-            # "Frechet Inception Distance": fid,
+            "Discriminator Privacy Cost": disc_epsilon,
         })
 
-        # if (epoch+1) % 10 == 0:
-        #     fid = calculate_fretchet(data.cpu(), fake, fid_model)
-
-        disc_epsilon = disc_privacy_engine.accountant.get_epsilon(delta=utils.dpgan_discriminator_delta)
-        # gen_epsilon = gen_privacy_engine.accountant.get_epsilon(delta=utils.dpgan_generator_delta)
         utils.print_red(
             f"Epoch:{epoch} Loss Discriminator: {error_D / len(data_loader)} Loss Generator: {error_G / len(data_loader)} Generator Epsilon: {0} Discriminator Epsilon: {0}")
-
 
         torch.save(gen_net.state_dict(), f'{utils.DPGAN_MODEL_PATH}/Generator_Epoch_{epoch}.pth')
         torch.save(disc_net.state_dict(), f'{utils.DPGAN_MODEL_PATH}/Discriminator_Epoch_{epoch}.pth')
@@ -160,6 +145,7 @@ def train(run):
     artifact.add_file(f'{utils.DPGAN_MODEL_PATH}/Generator.pth')
     artifact.add_file(f'{utils.DPGAN_MODEL_PATH}/Discriminator.pth')
     run.log_artifact(artifact)
+
 
 if __name__ == "__main__":
     import os
