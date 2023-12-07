@@ -7,3 +7,5 @@ SAVE_IMAGES_ROOT_PATH = "images"
 GAN_IMG_PATH = "gan"
 DPGAN_IMG_PATH = "dpgan"
 
+VAE_PATH = "models/vae/vae.pth"
+DPVAE_PATH = "models/dpvae/vae.pth"

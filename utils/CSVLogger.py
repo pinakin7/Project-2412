@@ -1,9 +1,14 @@
 import csv
 
 class CSVLogger:
-    def __init__(self, filename):
+    def __init__(self, filename, fid=False):
         self.filename = filename
-        self.fieldnames = ['data_origin', 'image_number', 'predicted_distribution']
+        self.fid = fid
+        if fid:
+            self.fieldnames = ['data_origin', 'num_images', 'FID']
+        else:
+            self.fieldnames = ['data_origin', 'image_number', 'predicted_distribution']
+
         self._create_csv()
 
     def _create_csv(self):
@@ -14,11 +19,18 @@ class CSVLogger:
     def log(self, model, image_number, predicted_distribution):
         with open(self.filename, 'a', newline='') as file:
             writer = csv.DictWriter(file, fieldnames=self.fieldnames)
-            writer.writerow({
-                'data_origin': model,
-                'image_number': image_number,
-                'predicted_distribution': predicted_distribution
-            })
+            if not self.fid:
+                writer.writerow({
+                    'data_origin': model,
+                    'image_number': image_number,
+                    'predicted_distribution': predicted_distribution
+                })
+            if self.fid:
+                writer.writerow({
+                    'data_origin': model,
+                    'num_images': image_number,
+                    'FID': predicted_distribution
+                })
 
 if __name__ == "__main__":
     # Example usage:

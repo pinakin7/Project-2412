@@ -1,16 +1,19 @@
-# This is a sample Python script.
+import torchvision.transforms
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from PrivateModels.DPGAN.Generator import  Generator
+import matplotlib.pyplot as plt
+import torch
+import numpy as np
+import matplotlib.pyplot as plt
+from torchvision.utils import  make_grid
+net = Generator(1).cuda()
+net.load_state_dict(torch.load("A:\Project\\2412\\models\\dpcgan\\Generator.pth"))
+
+noise = torch.autograd.Variable(torch.randn(100, 100)).cuda()
+labels = torch.autograd.Variable(torch.LongTensor(np.random.randint(0, 10, 100))).cuda()
+out = 0.3081*net(noise, labels).detach().cpu()+0.1307
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+grid = make_grid(out.unsqueeze(1), nrow=10, padding=2, pad_value=0)
+img = torchvision.transforms.ToPILImage()(grid)
+torchvision.utils.save_image(grid, "out.png")

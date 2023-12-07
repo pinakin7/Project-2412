@@ -32,5 +32,5 @@ if __name__ == "__main__":
     block_idx = InceptionV3.BLOCK_INDEX_BY_DIM[2048]
     model = InceptionV3([block_idx])
     model = model.to('cuda' if torch.cuda.is_available() else 'cpu')
-    images = torch.randn((128,3,32,32)).to('cuda' if torch.cuda.is_available() else 'cpu')
-    print(calculate_activate_statistics(model,images, cuda=torch.cuda.is_available()))
+    images = torch.randn((128,1,32,32)).to('cuda' if torch.cuda.is_available() else 'cpu')
+    print(calculate_activation_statistics(model,images, cuda=torch.cuda.is_available()))

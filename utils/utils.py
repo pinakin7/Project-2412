@@ -9,16 +9,17 @@ label_class = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 's
 num_channels = 1
 
 # Attack model parameters
-attack_noise_dim = 100
+attack_noise_dim = 28
 num_attack_generator_filter = 64
 num_attack_discriminator_filter = 64
 attack_batch_size = 100
-attack_epochs = 10
-attack_gen_lr = 0.00558
-attack_disc_lr = 0.003
-attack_img_size = 64
+attack_epochs = 5
+attack_gen_lr = 0.0005
+attack_disc_lr = 0.0005
+attack_img_size = 28
+attack_num_critic = 5
 
-ATTACK_MODEL_PATH = "../models/attack/"
+ATTACK_MODEL_PATH = "models/CGAN/"
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 num_gpus = 1
@@ -28,10 +29,10 @@ dpgan_noise_dim = 100
 num_dpgan_generator_filter = 64
 num_dpgan_discriminator_filter = 64
 dpgan_batch_size = 64
-dpgan_epochs = 10
-dpgan_gen_lr = 0.005
-dpgan_disc_lr = 0.003
-dpgan_img_size = 64
+dpgan_epochs = 70
+dpgan_gen_lr = 0.0005
+dpgan_disc_lr = 0.0005
+dpgan_img_size = 28
 dpgan_generator_delta = 1e-5
 dpgan_discriminator_delta = 1e-5
 dpgan_discriminator_noise = 1.15
@@ -40,14 +41,18 @@ dpgan_generator_max_grad_norm = 1.1
 dpgan_discriminator_max_grad_norm = 1.1
 # dpgan_discriminator_max_epsilon = 1e5
 # dpgan_discriminator_epsilon = 5
-DPGAN_MODEL_PATH = "models/dpgan/"
+# DPGAN_MODEL_PATH = "models/dpgan/"
+DPGAN_MODEL_PATH = "models/dpcgan/"
 GAN_MODEL_PATH = "models/gan/"
 
+
+# VAE
+vae_latent_dims = 2
 
 def init_params_attack_model(model):
     classname = model.__class__.__name__
 
-    if classname.find('Conv') != -1:
+    if classname.find('Linear') != -1:
         model.weight.data.normal_(0.0, 0.02)
     elif classname.find('BatchNorm') != -1:
         model.weight.data.normal_(1.0, 0.02)
