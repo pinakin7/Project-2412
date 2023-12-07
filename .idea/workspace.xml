@@ -5,36 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a581421e-8671-4440-b886-0b5e4af09901" name="Changes" comment="Logs Added">
-      <change afterPath="$PROJECT_DIR$/NonPrivateModels/GAN/Discriminator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NonPrivateModels/GAN/Generator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NonPrivateModels/GAN/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NonPrivateModels/GAN/trainer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NonPrivateModels/VAE/AutoEncoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NonPrivateModels/VAE/Decoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NonPrivateModels/VAE/Encoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NonPrivateModels/VAE/VariationalAutoEncoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NonPrivateModels/VAE/VariationalEncoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NonPrivateModels/VAE/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PrivateModels/VAE/AutoEncoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PrivateModels/VAE/Decoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PrivateModels/VAE/Encoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PrivateModels/VAE/VariationalAutoEncoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PrivateModels/VAE/VariationalEncoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PrivateModels/VAE/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dpwgan_conditional.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AttackModel/Discriminator.py" beforeDir="false" afterPath="$PROJECT_DIR$/AttackModel/Discriminator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AttackModel/Generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/AttackModel/Generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AttackModel/trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/AttackModel/trainer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MIA/DataGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/MIA/DataGenerator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MIA/mia.py" beforeDir="false" afterPath="$PROJECT_DIR$/MIA/mia.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrivateModels/DPGAN/Discriminator.py" beforeDir="false" afterPath="$PROJECT_DIR$/PrivateModels/DPGAN/Discriminator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrivateModels/DPGAN/Generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/PrivateModels/DPGAN/Generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrivateModels/DPGAN/trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/PrivateModels/DPGAN/trainer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/logs.csv" beforeDir="false" afterPath="$PROJECT_DIR$/logs/logs.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/CSVLogger.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/CSVLogger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/statistics/ActivationStatistics.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/statistics/ActivationStatistics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -439,7 +411,9 @@
       <workItem from="1701817265800" duration="7863000" />
       <workItem from="1701827283371" duration="1376000" />
       <workItem from="1701880413382" duration="16958000" />
-      <workItem from="1701903523650" duration="4350000" />
+      <workItem from="1701903523650" duration="4958000" />
+      <workItem from="1701965858805" duration="132000" />
+      <workItem from="1701966000313" duration="1738000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <option name="closed" value="true" />
@@ -513,7 +487,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701829164703</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Logs Added">
+      <option name="closed" value="true" />
+      <created>1701915274535</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1701915274535</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
