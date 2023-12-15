@@ -1,0 +1,83 @@
+Best-performing attacks over all slices
+  LOGISTIC_REGRESSION (with 6742 training and 100 test examples) achieved an AUC of 0.98 on slice CLASS=1
+  LOGISTIC_REGRESSION (with 6742 training and 100 test examples) achieved an advantage of 0.92 on slice CLASS=1
+  LOGISTIC_REGRESSION (with 60000 training and 1000 test examples) achieved a positive predictive value of 1.00 on slice Entire dataset
+  THRESHOLD_ATTACK (with 60000 training and 1000 test examples) achieved top-5 epsilon lower bounds of 6.8271, 6.8036, 6.7868, 6.7795, 6.7684 on slice Entire dataset
+
+Best-performing attacks over slice: "Entire dataset"
+  LOGISTIC_REGRESSION (with 60000 training and 1000 test examples) achieved an AUC of 0.84
+  LOGISTIC_REGRESSION (with 60000 training and 1000 test examples) achieved an advantage of 0.56
+  LOGISTIC_REGRESSION (with 60000 training and 1000 test examples) achieved a positive predictive value of 1.00
+  THRESHOLD_ATTACK (with 60000 training and 1000 test examples) achieved top-5 epsilon lower bounds of 6.8271, 6.8036, 6.7868, 6.7795, 6.7684
+
+Best-performing attacks over slice: "CLASS=0"
+  LOGISTIC_REGRESSION (with 5923 training and 100 test examples) achieved an AUC of 0.94
+  LOGISTIC_REGRESSION (with 5923 training and 100 test examples) achieved an advantage of 0.82
+  LOGISTIC_REGRESSION (with 5923 training and 100 test examples) achieved a positive predictive value of 1.00
+  LOGISTIC_REGRESSION (with 5923 training and 100 test examples) achieved top-5 epsilon lower bounds of 4.1834, 4.1354, 3.8644, 3.8472, 3.8198
+
+Best-performing attacks over slice: "CLASS=1"
+  LOGISTIC_REGRESSION (with 6742 training and 100 test examples) achieved an AUC of 0.98
+  LOGISTIC_REGRESSION (with 6742 training and 100 test examples) achieved an advantage of 0.92
+  LOGISTIC_REGRESSION (with 6742 training and 100 test examples) achieved a positive predictive value of 1.00
+  LOGISTIC_REGRESSION (with 6742 training and 100 test examples) achieved top-5 epsilon lower bounds of 3.8423, 3.8308, 3.8299, 3.8277, 3.8274
+
+Best-performing attacks over slice: "CLASS=2"
+  LOGISTIC_REGRESSION (with 5958 training and 100 test examples) achieved an AUC of 0.85
+  LOGISTIC_REGRESSION (with 5958 training and 100 test examples) achieved an advantage of 0.58
+  LOGISTIC_REGRESSION (with 5958 training and 100 test examples) achieved a positive predictive value of 1.00
+  THRESHOLD_ATTACK (with 5958 training and 100 test examples) achieved top-5 epsilon lower bounds of 5.5537, 5.4670, 5.4117, 5.3720, 5.3366
+
+Best-performing attacks over slice: "CLASS=3"
+  LOGISTIC_REGRESSION (with 6131 training and 100 test examples) achieved an AUC of 0.95
+  LOGISTIC_REGRESSION (with 6131 training and 100 test examples) achieved an advantage of 0.81
+  LOGISTIC_REGRESSION (with 6131 training and 100 test examples) achieved a positive predictive value of 1.00
+  LOGISTIC_REGRESSION (with 6131 training and 100 test examples) achieved top-5 epsilon lower bounds of 6.1760, 6.1407, 6.1040, 6.0660, 6.0264
+
+Best-performing attacks over slice: "CLASS=4"
+  LOGISTIC_REGRESSION (with 5842 training and 100 test examples) achieved an AUC of 0.90
+  LOGISTIC_REGRESSION (with 5842 training and 100 test examples) achieved an advantage of 0.69
+  LOGISTIC_REGRESSION (with 5842 training and 100 test examples) achieved a positive predictive value of 1.00
+  LOGISTIC_REGRESSION (with 5842 training and 100 test examples) achieved top-5 epsilon lower bounds of 5.9390, 5.8819, 5.8213, 5.8021, 5.7568
+
+Best-performing attacks over slice: "CLASS=5"
+  LOGISTIC_REGRESSION (with 5421 training and 100 test examples) achieved an AUC of 0.91
+  LOGISTIC_REGRESSION (with 5421 training and 100 test examples) achieved an advantage of 0.76
+  LOGISTIC_REGRESSION (with 5421 training and 100 test examples) achieved a positive predictive value of 1.00
+  LOGISTIC_REGRESSION (with 5421 training and 100 test examples) achieved top-5 epsilon lower bounds of 6.0648, 6.0183, 5.9695, 5.9182, 5.8642
+
+Best-performing attacks over slice: "CLASS=6"
+  LOGISTIC_REGRESSION (with 5918 training and 100 test examples) achieved an AUC of 0.90
+  LOGISTIC_REGRESSION (with 5918 training and 100 test examples) achieved an advantage of 0.68
+  LOGISTIC_REGRESSION (with 5918 training and 100 test examples) achieved a positive predictive value of 1.00
+  LOGISTIC_REGRESSION (with 5918 training and 100 test examples) achieved top-5 epsilon lower bounds of 5.9519, 5.8948, 5.8620, 5.8342, 5.8151
+
+Best-performing attacks over slice: "CLASS=7"
+  LOGISTIC_REGRESSION (with 6265 training and 100 test examples) achieved an AUC of 0.71
+  LOGISTIC_REGRESSION (with 6265 training and 100 test examples) achieved an advantage of 0.54
+  LOGISTIC_REGRESSION (with 6265 training and 100 test examples) achieved a positive predictive value of 1.00
+  LOGISTIC_REGRESSION (with 6265 training and 100 test examples) achieved top-5 epsilon lower bounds of 5.8912, 5.8267, 5.7709, 5.7578, 5.7163
+
+Best-performing attacks over slice: "CLASS=8"
+  LOGISTIC_REGRESSION (with 5851 training and 100 test examples) achieved an AUC of 0.87
+  LOGISTIC_REGRESSION (with 5851 training and 100 test examples) achieved an advantage of 0.68
+  LOGISTIC_REGRESSION (with 5851 training and 100 test examples) achieved a positive predictive value of 1.00
+  LOGISTIC_REGRESSION (with 5851 training and 100 test examples) achieved top-5 epsilon lower bounds of 6.5765, 6.5489, 6.5466, 6.5258, 6.5158
+
+Best-performing attacks over slice: "CLASS=9"
+  LOGISTIC_REGRESSION (with 5949 training and 100 test examples) achieved an AUC of 0.96
+  LOGISTIC_REGRESSION (with 5949 training and 100 test examples) achieved an advantage of 0.83
+  LOGISTIC_REGRESSION (with 5949 training and 100 test examples) achieved a positive predictive value of 1.00
+  LOGISTIC_REGRESSION (with 5949 training and 100 test examples) achieved top-5 epsilon lower bounds of 5.7061, 5.6645, 5.6321, 5.6067, 5.5522
+
+Best-performing attacks over slice: "CORRECTLY_CLASSIFIED=True"
+  LOGISTIC_REGRESSION (with 59904 training and 884 test examples) achieved an AUC of 0.82
+  LOGISTIC_REGRESSION (with 59904 training and 884 test examples) achieved an advantage of 0.52
+  LOGISTIC_REGRESSION (with 59904 training and 884 test examples) achieved a positive predictive value of 1.00
+  LOGISTIC_REGRESSION (with 59904 training and 884 test examples) achieved top-5 epsilon lower bounds of 5.0195, 4.9522, 4.9159, 4.9029, 4.8907
+
+Best-performing attacks over slice: "CORRECTLY_CLASSIFIED=False"
+  THRESHOLD_ATTACK (with 96 training and 116 test examples) achieved an AUC of 0.86
+  THRESHOLD_ATTACK (with 96 training and 116 test examples) achieved an advantage of 0.63
+  THRESHOLD_ATTACK (with 96 training and 116 test examples) achieved a positive predictive value of 1.00
+  THRESHOLD_ATTACK (with 96 training and 116 test examples) achieved top-5 epsilon lower bounds of 2.5548, 2.5313, 2.5184, 2.5072, 2.5000

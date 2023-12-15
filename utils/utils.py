@@ -1,3 +1,5 @@
+from dataclasses import dataclass
+
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
@@ -96,3 +98,15 @@ def plot_images_grid(num_images, img_size, image_tensors, labels, label):
 
 def print_red(text):
     print("\033[91m{}\033[0m".format(text))
+
+@dataclass
+class GANHyperparameter:
+    num_classes: int        = 10
+    batchsize: int          = 128
+    num_epochs: int         = 50
+    latent_size: int        = 32
+    n_critic: int           = 5
+    critic_size: int        = 1024
+    generator_size: int     = 1024
+    critic_hidden_size: int = 1024
+    gp_lambda: float        = 10.
