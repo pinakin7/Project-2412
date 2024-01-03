@@ -5,22 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a581421e-8671-4440-b886-0b5e4af09901" name="Changes" comment="Logs Added">
-      <change afterPath="$PROJECT_DIR$/ModelArchitectures/Diffusion/Block.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ModelArchitectures/Diffusion/Diffusion.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ModelArchitectures/Diffusion/UNet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ModelArchitectures/Diffusion/trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Code.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Code.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ModelArchitectures/GAN/Discriminator.py" beforeDir="false" afterPath="$PROJECT_DIR$/ModelArchitectures/GAN/Critic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ModelArchitectures/VAE/AutoEncoder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ModelArchitectures/VAE/Decoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/ModelArchitectures/VAE/Decoder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ModelArchitectures/VAE/Encoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/ModelArchitectures/VAE/Encoder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ModelArchitectures/VAE/VariationalAutoEncoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/ModelArchitectures/VAE/VariationalAutoEncoder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ModelArchitectures/VAE/VariationalEncoder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/generate_results.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/generate_results.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/fid_scores/scores.csv" beforeDir="false" afterPath="$PROJECT_DIR$/output/fid_scores/scores.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/statistics/FID.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/statistics/FID.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -432,7 +418,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-7a29c1521ef0-c986f194a52a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.11799.298" />
+        <option value="bundled-python-sdk-50da183f06c8-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13135.95" />
       </set>
     </attachedChunks>
   </component>
@@ -486,6 +472,7 @@
       <workItem from="1702700244721" duration="2760000" />
       <workItem from="1702750021200" duration="3992000" />
       <workItem from="1702930110801" duration="13000" />
+      <workItem from="1703877107508" duration="75000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <option name="closed" value="true" />
@@ -591,7 +578,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702659551224</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Logs Added">
+      <option name="closed" value="true" />
+      <created>1703877145157</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1703877145157</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
