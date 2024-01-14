@@ -1,10 +1,10 @@
 # Privacy-Preserving Generative Models: A Comparative Analysis
 
-This repository contains the research paper "Privacy-Preserving Generative Models: A Comparative Analysis" by Aneri Gandhi and Preet Viradiya from the University of Toronto. The paper investigates the training of image generative models with a focus on differential privacy, specifically the Conditional Generative Adversarial Network (CGAN), Conditional Variational Autoencoder (CVAE), and the Diffusion Model. The study aims to shed light on the delicate balance between privacy and accuracy, providing insights into how increasing the privacy budget affects the quality of generated images.
+The project investigates the training of image generative models with a focus on differential privacy, specifically the Conditional Generative Adversarial Network (CGAN), Conditional Variational Autoencoder (CVAE), and the Diffusion Model. The study aims to shed light on the delicate balance between privacy and accuracy, providing insights into how increasing the privacy budget affects the quality of generated images.
 
 ## Abstract
 
-The research utilizes the MNIST dataset to numerically measure the privacy-accuracy trade-off using parameters from renyi differential privacy and the Fréchet Inception Distance (FID) score. The experiments provide insights into the impact of differential privacy on the quality of generated images, offering valuable implications for the deployment of privacy-preserving generative models.
+The research utilizes the MNIST dataset to numerically measure the privacy-accuracy trade-off using parameters from renyi-differential privacy and the Fréchet Inception Distance (FID) score. The experiments provide insights into the impact of differential privacy on the quality of generated images, offering valuable implications for the deployment of privacy-preserving generative models.
 
 ## Methodology
 
