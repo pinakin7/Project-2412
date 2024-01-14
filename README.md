@@ -4,7 +4,7 @@ This repository contains the research paper "Privacy-Preserving Generative Model
 
 ## Abstract
 
-The research utilizes the MNIST dataset to numerically measure the privacy-accuracy trade-off using parameters from ϵ − δ differential privacy and the Fréchet Inception Distance (FID) score. The experiments provide insights into the impact of differential privacy on the quality of generated images, offering valuable implications for the deployment of privacy-preserving generative models.
+The research utilizes the MNIST dataset to numerically measure the privacy-accuracy trade-off using parameters from renyi differential privacy and the Fréchet Inception Distance (FID) score. The experiments provide insights into the impact of differential privacy on the quality of generated images, offering valuable implications for the deployment of privacy-preserving generative models.
 
 ## Methodology
 
